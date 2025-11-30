@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ListStudentComponent from './components/ListStudentComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
@@ -9,21 +9,20 @@ import ViewStudentComponent from './components/ViewStudentComponent';
 
 function App() {
   return (
-    <Router>
-      <div className="d-flex flex-column min-vh-100">
+    <div>
+      <Router>
         <HeaderComponent />
-        <main className="flex-grow-1">
+        <div className="container">
           <Routes>
-            <Route path="/" element={<Navigate to="/students" replace />} />
+            <Route path="/" element={<ListStudentComponent />} />
             <Route path="/students" element={<ListStudentComponent />} />
             <Route path="/add-student/:id" element={<CreateStudentComponent />} />
             <Route path="/view-student/:id" element={<ViewStudentComponent />} />
-            <Route path="*" element={<Navigate to="/students" replace />} />
           </Routes>
-        </main>
+        </div>
         <FooterComponent />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const STUDENT_API_BASE_URL = process.env.REACT_APP_API_URL || "/api/students";
+const STUDENT_API_BASE_URL = "/api/students";
 
 class StudentService {
 
